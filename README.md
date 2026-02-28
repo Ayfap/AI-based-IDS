@@ -1,44 +1,44 @@
-# 🔐 AI-Based Intrusion Detection System using Machine Learning
+# 🔐 Hybrid Classical–Quantum AI-Based Intrusion Detection System
 
-An **AI-Based Intrusion Detection System (IDS)** built using **Machine Learning** to detect malicious network traffic from real-world datasets.  
-This project uses the **CICIDS dataset** and is implemented entirely in **Python using Google Colab**.
+A **hybrid intrusion detection system (IDS)** that combines **classical machine learning** and **quantum-inspired machine learning** techniques to detect malicious network traffic.  
+The system is evaluated on the **CICIDS network intrusion dataset** using a **Random Forest classifier** and a **Quantum Support Vector Machine (QSVM)** implemented with Qiskit.
 
 ---
 
 ## 📌 Project Overview
 
-Intrusion Detection Systems (IDS) are essential for identifying unauthorized access and malicious activities in computer networks.  
-This project applies **machine learning techniques** to classify network traffic as **Normal (BENIGN)** or **Attack**.
+Intrusion Detection Systems (IDS) play a critical role in securing modern networks by identifying unauthorized access and cyber attacks.  
+This project explores a **hybrid classical–quantum approach** where:
 
-The system follows a complete ML pipeline:
-- Data collection
-- Data preprocessing
-- Feature scaling
-- Model training
-- Intrusion detection
-- Performance evaluation
+- **Classical ML** handles large-scale network traffic efficiently
+- **Quantum ML (simulated)** explores complex feature relationships on a small, balanced subset of data
+
+The goal is to **compare performance** and demonstrate the feasibility of **quantum-enhanced intrusion detection** using current quantum simulation tools.
 
 ---
 
 ## 🎯 Objectives
 
-- Detect network intrusions automatically using AI
-- Classify traffic as **Normal or Attack**
-- Achieve high detection accuracy
-- Build a reusable and scalable IDS model
+- Detect network intrusions accurately using machine learning  
+- Build a baseline **classical IDS** using Random Forest  
+- Implement a **quantum-enhanced IDS** using Quantum SVM  
+- Compare classical and quantum model performance  
+- Ensure the system is **Google Colab and RAM safe**
 
 ---
 
 ## 🗂 Dataset
 
-- **Dataset Name:** CICIDS Collection  
+- **Dataset:** CICIDS Collection  
 - **Source:** Kaggle  
-- **Type:** Network traffic flow-based dataset  
-- **Classes:**  
+- **Type:** Real-world network traffic flows  
+- **Labels:**  
   - `BENIGN`  
-  - Multiple attack types (merged into `Attack`)
+  - Attack traffic (merged as `Attack`)
 
-The dataset contains real network traffic with labeled attack scenarios.
+Due to the large size of the dataset:
+- **Classical IDS** is trained on a large sample  
+- **Quantum IDS** is trained on a **small, balanced subset** (research-standard approach)
 
 ---
 
@@ -52,48 +52,57 @@ The dataset contains real network traffic with labeled attack scenarios.
   - Scikit-learn
   - Matplotlib
   - Seaborn
-  - Joblib
-- **Algorithm:** Random Forest Classifier
+  - KaggleHub
+  - Qiskit
+  - Qiskit Aer
+  - Qiskit Machine Learning
 
 ---
 
-## 🧠 Machine Learning Model
+## 🧠 System Architecture
 
-### Random Forest Classifier
-Chosen because:
-- Handles large and high-dimensional datasets
-- Resistant to overfitting
-- Works well for intrusion detection problems
-- Supports feature importance analysis
+### Classical IDS
+1. Data preprocessing and cleaning  
+2. Feature scaling  
+3. Train–test split  
+4. Random Forest model training  
+5. Performance evaluation  
+
+### Quantum IDS (Hybrid Approach)
+1. Balanced sampling of small dataset  
+2. Feature scaling  
+3. PCA-based feature reduction (4 features → 4 qubits)  
+4. Quantum feature mapping (ZZFeatureMap)  
+5. Quantum kernel computation (fidelity-based)  
+6. Quantum SVM (QSVC) classification  
 
 ---
 
-## ⚙️ System Workflow
+## ⚛️ Quantum Computing Details
 
-1. Download dataset using KaggleHub  
-2. Load and merge multiple CSV files  
-3. Clean data (handle NaN and infinite values)  
-4. Encode labels (BENIGN → 0, Attack → 1)  
-5. Feature scaling using StandardScaler  
-6. Train-test split  
-7. Model training (Random Forest)  
-8. Prediction and evaluation  
-9. Model saving for future use  
+- Quantum computations are performed using **Qiskit Aer Simulator**
+- A **fidelity-based quantum kernel** is used
+- Modern **V2 Qiskit primitives** ensure compatibility with current APIs
+- This project uses **quantum simulation**, not real quantum hardware
+
+> ⚠️ Quantum models are intentionally trained on small datasets due to current quantum hardware and simulator limitations.
 
 ---
 
 ## 📊 Evaluation Metrics
 
-- Accuracy
-- Precision
-- Recall
-- F1-Score
-- Confusion Matrix
+- Accuracy  
+- Precision  
+- Recall  
+- F1-Score  
+- Confusion Matrix  
 
 ---
 
-## ✅ Results
+## ✅ Results Summary
 
-The model successfully detects intrusions with **high accuracy** and balanced precision-recall performance, proving the effectiveness of machine learning for network security applications.
+- **Random Forest (Classical IDS):** High accuracy on large-scale data  
+- **Quantum SVM (QSVC):** Competitive performance on small, balanced data  
+- **Hybrid approach:** Demonstrates practical integration of quantum ML with classical systems  
 
 ---
